@@ -1,0 +1,20 @@
+{
+  "name": "pandasale-events",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "albyzyx",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.0.6",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.9",
+    "express": "^4.18.2",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.3.8",
+    "typescript": "^4.7.4",
+    "web3.storage": "^4.4.0"
+  }
+}
