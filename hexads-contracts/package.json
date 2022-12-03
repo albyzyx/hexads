@@ -1,9 +1,10 @@
 {
   "name": "hardhat-project",
   "dependencies": {
+    "@chainlink/contracts": "^0.5.1",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "@openzeppelin/contracts": "^4.6.0",
+    "@openzeppelin/contracts": "^4.8.0",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "@types/prompt-sync": "^4.1.1",
     "chai-as-promised": "^7.1.1",
