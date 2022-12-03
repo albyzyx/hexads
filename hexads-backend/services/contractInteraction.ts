@@ -17,8 +17,8 @@ export const getCampaignContract = async (campaignContract: string) => {
   return contract;
 };
 
-export const fetchCampaignData = async (campaignAddress: string) => {
-  const CampaignContract = await getCampaignContract(campaignAddress);
+export const fetchCampaignData = async (campaignId: number) => {
+  const CampaignContract = await getCampaignContract("campaignAddress");
   const metadataCID = await CampaignContract.metadataCID();
   return {
     campaignName: "TestCampaign",

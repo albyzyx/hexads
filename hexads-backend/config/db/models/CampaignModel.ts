@@ -1,8 +1,6 @@
 import CampaignInterface from "./modelInterfaces/CampaignInterface";
 import mongoose from "mongoose";
 import { ethers } from "ethers";
-import { resolve } from "path";
-import { rejects } from "assert";
 
 const getTargetAd = (targetID: number[]) => {
   return new Promise<any>((resolve, reject) => {
@@ -31,10 +29,21 @@ const getTargetAd = (targetID: number[]) => {
   });
 };
 
+const addSpentXAT = (campaignID: number, interactionCostXAT: number) => {
+  CampaignModel.findOne({ campaignID }).then((campaignModel) => {
+    campaignModel.campaignSpentXAT += interactionCostXAT;
+    if (campaignModel.campaignSpentXAT >= campaignModel.campaignBudgetXAT) {
+      campaignModel.isActive = false;
+    }
+    campaignModel.save();
+  });
+};
+
 const CampaignSchema = new mongoose.Schema(CampaignInterface, {
   timestamps: true,
   statics: {
     getTargetAd,
+    addSpentXAT,
   },
 });
 

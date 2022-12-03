@@ -13,7 +13,7 @@ const InteractionInterface = {
     required: true,
   },
   interactionType: {
-    type: String,
+    type: Number,
   },
   interactionCostXAT: {
     type: Number,

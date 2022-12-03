@@ -1,7 +1,7 @@
 // Ad campaign data model, Contains campaign price and progress
 const CampaignInterface = {
-  address: {
-    type: String,
+  campaignID: {
+    type: Number,
     required: true,
     unique: true,
   },
