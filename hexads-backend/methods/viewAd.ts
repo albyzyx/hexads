@@ -3,13 +3,15 @@ import InteractionModel from "../config/db/models/InteractionModel";
 const viewAd = async ({
   userAddress,
   platformAddress,
-  campaignAddress,
+  advertiserAddress,
+  campaignID,
   isView,
 }) => {
   InteractionModel.triggerInteraction(
     userAddress,
     platformAddress,
-    campaignAddress,
+    advertiserAddress,
+    campaignID,
     isView
   );
 };
