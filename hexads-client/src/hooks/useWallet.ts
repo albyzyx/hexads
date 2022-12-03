@@ -30,7 +30,9 @@ const useWallet = () => {
     dispatch(clearWalletState());
   };
 
-  return { address, connect, disconnect, clear };
+  const isConnected = address !== "";
+
+  return { address, connect, disconnect, clear, isConnected };
 };
 
 export default useWallet;

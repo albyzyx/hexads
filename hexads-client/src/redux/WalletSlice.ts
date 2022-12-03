@@ -21,7 +21,7 @@ let INIT_STATE: WalletState = {
 
 export const connectWallet = createAsyncThunk("AUTH/CONNECT_WALLET", () => {
   return new Promise((resolve, reject) => {
-    walletConnect();
+    walletConnect().then(resolve).catch(reject);
   });
 });
 
@@ -39,7 +39,7 @@ export const connectWalletCache = createAsyncThunk(
   "AUTH/CONNECT_WALLET_CACHE",
   () => {
     return new Promise((resolve, reject) => {
-      walletConnectIfCache();
+      walletConnectIfCache().then(resolve).catch(reject);
     });
   }
 );
@@ -62,13 +62,14 @@ const walletSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(connectWallet.fulfilled, (state, payload: any) => {
+      .addCase(connectWallet.fulfilled, (state, { payload }: any) => {
+        console.log({ payload });
         state.address = payload.address;
       })
-      .addCase(connectWalletCache.fulfilled, (state, payload: any) => {
+      .addCase(connectWalletCache.fulfilled, (state, { payload }: any) => {
         state.address = payload.address;
       })
-      .addCase(disconnectWallet.fulfilled, (state, payload: any) => {
+      .addCase(disconnectWallet.fulfilled, (state, { payload }: any) => {
         state.address = "";
       });
   },

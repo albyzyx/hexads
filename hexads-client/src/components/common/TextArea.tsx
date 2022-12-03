@@ -1,45 +1,40 @@
 import React from "react";
 
-interface TextInputProps {
+interface TextAreaProps {
   label: string;
   placeHolder: string;
   callback: Function;
   mandatory: boolean;
-  value: string | number;
-  meta?: any;
-  styles?: string;
-  type?: string;
+  value: string;
+  meta: any;
 }
 
-const TextInput = ({
+const TextArea = ({
   label,
   placeHolder,
   callback,
   mandatory,
   value,
   meta,
-  styles,
-  type = "text",
-}: TextInputProps) => {
+}: TextAreaProps) => {
   return (
-    <section className="flex flex-col items-start gap-3 w-full">
+    <section className="flex flex-col items-start gap-5">
       <label htmlFor={label} className="text-secondary text-lg font-medium">
         {label} {mandatory && <span className="text-mandatory">*</span>}
       </label>
-      <input
-        type={type}
+      <textarea
         placeholder={placeHolder}
         value={value}
         onChange={(e) => {
           callback(e.target.value);
         }}
-        className={`text-secondary pl-5 py-3 text-lg rounded-lg font-medium focus:outline-none border-[0.75px] border-border bg-background placeholder:text-secondary w-full ${styles}`}
+        className="text-secondary pl-5 py-3 text-lg font-medium w-full min-h-[150px] focus:outline-none border-[0.75px] border-border bg-background placeholder:text-secondary"
       />
-      {meta && meta.touched && meta.error ? (
+      {meta.touched && meta.error ? (
         <span className=" text-mandatory">{meta.error}</span>
       ) : null}
     </section>
   );
 };
 
-export default TextInput;
+export default TextArea;

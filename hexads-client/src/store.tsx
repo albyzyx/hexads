@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import walletReducer from "./redux/WalletSlice";
+import viewsReducer from "./redux/ViewsSlice";
+import configReducer from "./redux/ConfigSlice";
 
 export const store = configureStore({
   reducer: {
     wallet: walletReducer,
+    views: viewsReducer,
+    config: configReducer,
   },
 });
 
