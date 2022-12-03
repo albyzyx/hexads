@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract CampaignManager {
+contract HexadManager {
   using Counters for Counters.Counter;
 
   Counters.Counter private _campaignIDs;
@@ -49,3 +49,5 @@ contract CampaignManager {
     return newId;
   }
 }
+
+// 0xFdd59E00fbAC168F8309aA6c569fc198bb1970DB
