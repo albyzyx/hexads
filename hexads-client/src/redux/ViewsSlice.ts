@@ -9,7 +9,7 @@ interface ViewState {
 }
 
 let INIT_STATE: ViewState = {
-  view: VIEWS.CREATE_CAMPAIGN,
+  view: VIEWS.LOADING,
   from: VIEWS.LOADING,
   campaign: CREATE_CAMPAIGN_VIEWS.LEVEL1,
 };

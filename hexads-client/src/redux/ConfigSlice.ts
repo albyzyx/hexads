@@ -5,7 +5,7 @@ interface ConfigState {
 }
 
 let INIT_STATE: ConfigState = {
-  user_type: "advertiser",
+  user_type: "none",
 };
 
 const configSlice = createSlice({
@@ -14,6 +14,7 @@ const configSlice = createSlice({
   reducers: {
     updateConfigState: (state, action) => {
       state.user_type = action.payload.user_type;
+      localStorage.setItem("user_type", action.payload.user_type);
     },
     clearConfigState: (state) => {
       state.user_type = "none";

@@ -31,7 +31,7 @@ export const getConnectedProvider = ():
 };
 
 export const getWeb3Provider = () => {
-  return new Promise<providers.Web3Provider>(async (resolve, reject) => {
+  return new Promise<providers.Web3Provider>((resolve, reject) => {
     let provider = getConnectedProvider();
     if (web3ModalSingleton.web3Provider !== null) {
       resolve(web3ModalSingleton.web3Provider);
@@ -40,6 +40,7 @@ export const getWeb3Provider = () => {
       web3ModalSingleton.web3Provider = web3Provider;
       resolve(web3Provider);
     } else {
+      console.log("REJ");
       reject();
     }
   });

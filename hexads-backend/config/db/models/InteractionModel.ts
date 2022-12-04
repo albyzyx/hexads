@@ -17,6 +17,7 @@ const interactionCost = {
 const triggerInteraction = (
   userAddress: string,
   platformAddress: string,
+  advertizerAddress: string,
   campaignID: number,
   isView: boolean
 ) => {
@@ -27,6 +28,7 @@ const triggerInteraction = (
     campaignID,
     platformAddress,
     userAddress,
+    advertizerAddress,
     interactionType: isView ? interaction.VIEW : interaction.CLICK,
     interactionCostXAT,
   });

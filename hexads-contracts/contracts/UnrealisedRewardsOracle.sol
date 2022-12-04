@@ -9,11 +9,11 @@ import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
 contract UnrealisedRewardsOracle is ChainlinkClient, ConfirmedOwner {
     using Chainlink for Chainlink.Request;
 
-    uint256 public volume;
+    uint256 public rewards;
     bytes32 private jobId;
     uint256 private fee;
 
-    event RequestVolume(bytes32 indexed requestId, uint256 volume);
+    event RequestRewards(bytes32 indexed requestId, uint256 rewards);
 
     constructor() ConfirmedOwner(msg.sender) {
         setChainlinkToken(0x326C977E6efc84E512bB9C30f76E30c160eD06FB);
@@ -22,7 +22,7 @@ contract UnrealisedRewardsOracle is ChainlinkClient, ConfirmedOwner {
         fee = (1 * LINK_DIVISIBILITY) / 10; // 0,1 * 10**18 (Varies by network and job)
     }
 
-    function requestVolumeData() public returns (bytes32 requestId) {
+    function requestRewardsData() public returns (bytes32 requestId) {
         Chainlink.Request memory req = buildChainlinkRequest(
             jobId,
             address(this),
@@ -43,10 +43,10 @@ contract UnrealisedRewardsOracle is ChainlinkClient, ConfirmedOwner {
 
     function fulfill(
         bytes32 _requestId,
-        uint256 _volume
+        uint256 _rewards
     ) public recordChainlinkFulfillment(_requestId) {
-        emit RequestVolume(_requestId, _volume);
-        volume = _volume;
+        emit RequestRewards(_requestId, _rewards);
+        rewards = _rewards;
     }
 
     function withdrawLink() public onlyOwner {

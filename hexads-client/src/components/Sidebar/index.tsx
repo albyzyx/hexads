@@ -2,9 +2,9 @@ import React from "react";
 
 const SidebarComponent = () => {
   return (
-    <aside className="border-r border-border w-1/4 h-full flex items-center justify-center bg-black text-white">
-      <span>SidebarComponent</span>
-    </aside>
+    <section className="w-full h-full flex items-center justify-center text-black bg-white shadow-sm border-r border-r-gray-200">
+      <span className="">SidebarComponent</span>
+    </section>
   );
 };
 

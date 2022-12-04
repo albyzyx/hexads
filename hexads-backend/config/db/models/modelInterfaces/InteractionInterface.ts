@@ -1,6 +1,10 @@
 // Ad campaign data model, Contains campaign price and progress
 const InteractionInterface = {
-  campaignAddress: {
+  campaignID: {
+    type: String,
+    required: true,
+  },
+  advertizerAddress: {
     type: String,
     required: true,
   },

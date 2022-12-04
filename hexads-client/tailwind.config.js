@@ -7,14 +7,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        archivo: ["Archivo", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        roboto: ["Roboto Mono", "monospace"],
       },
       colors: {
         background: "#020109",
         border: "#312640",
         primary: "#FFFFFF",
         secondary: "#56486B",
-        accent: "#9655FF",
+        accent: "#EDB013",
         mandatory: "#FF5263",
         green: "#32C991",
       },

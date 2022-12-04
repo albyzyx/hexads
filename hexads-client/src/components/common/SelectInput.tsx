@@ -29,14 +29,14 @@ const SelectInput = ({
 }: SelectInputProps) => {
   return (
     <section className="flex flex-col items-start gap-5 w-full">
-      <label htmlFor={label} className="text-secondary text-lg font-medium">
+      <label htmlFor={label} className="text-black text-lg font-medium">
         {label} {mandatory && <span className="text-mandatory">*</span>}
       </label>
       <SelectInputBox
         setter={setter}
         value={value}
         valueMap={valueMap}
-        styles={`text-secondary px-5 py-3 text-lg font-medium focus:outline-none border-[0.75px] border-border bg-background w-full ${styles}`}
+        styles={`text-black px-5 py-3 text-lg font-medium focus:outline-none border-[0.75px] border-gray-400 bg-white w-full ${styles}`}
       />
     </section>
   );
@@ -53,7 +53,7 @@ const SelectInputBox = ({
       <div className="relative w-full">
         <Listbox.Button
           className={`flex items-center justify-between ${styles}`}>
-          <span className="flex flex-start text-secondary">{value}</span>
+          <span className="flex flex-start text-black">{value}</span>
           <HiSelector className="h-5 w-5 text-accent" aria-hidden="true" />
         </Listbox.Button>
         <Transition
@@ -62,7 +62,7 @@ const SelectInputBox = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
           <Listbox.Options
-            className={`z-50  w-full absolute bg-background border-t-0 focus:outline-none border-[0.75px] pb-2 border-border`}>
+            className={`z-50  w-full absolute bg-white border-t-0 focus:outline-none border-[0.75px] pb-2 border-gray-400`}>
             {valueMap.map((value: any, idx: any) => (
               <Listbox.Option
                 key={idx}

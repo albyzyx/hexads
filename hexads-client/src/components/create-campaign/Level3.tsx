@@ -39,7 +39,7 @@ const Level3 = ({
           />
         );
       })}
-      <section>
+      <section className="flex items-center justify-center gap-5 self-end">
         <Button
           onClick={() => {
             views.updateCampaignView(views.from);
@@ -47,7 +47,7 @@ const Level3 = ({
           type="button">
           Review
         </Button>
-        <Button onClick={() => submitForm()} type="submit">
+        <Button onClick={() => submitForm(values)} type="submit">
           Submit
         </Button>
       </section>
@@ -57,9 +57,9 @@ const Level3 = ({
 
 const LabelValue = ({ label, value }: { label: string; value: string }) => {
   return (
-    <section>
-      <span>{label}</span>
-      <span>{value}</span>
+    <section className="flex flex-col items-start w-full gap-1">
+      <span className="font-semibold text-md">{label}</span>
+      <span className="text-accent text-xl">{value}</span>
     </section>
   );
 };

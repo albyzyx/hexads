@@ -1,14 +1,19 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.4;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-import "@openzeppelin/contracts/utils/Counters.sol";
+interface IPUSHCommInterface {
+    function sendNotification(address _channel, address _recipient, bytes calldata _identity) external;
+}
 
-contract CampaignManager {
+contract HexadsPushService {
   using Counters for Counters.Counter;
 
   Counters.Counter private _campaignIDs;
+
+  address public channel;
+
+  address private epnsComm;
 
   struct AdCampaign {
     string name;
@@ -22,15 +27,30 @@ contract CampaignManager {
 
   mapping(uint256 => AdCampaign) private _adCampaigns;
 
-  constructor(address _admin, address _xatAddress) {
+  constructor(address _admin, address _xatAddress,address _channel, address _epnsComm ) {
     admin = _admin;
     xatAddress = _xatAddress;
+    channel = _channel;
+    epnsComm = _epnsComm;
   }
 
   modifier onlyAdmin() {
     require(msg.sender == admin, "You are not authorized");
     _;
   }
+
+   IPUSHCommInterface(epnsComm).sendNotification(
+    channel, 
+    to, 
+    bytes(
+        string(
+            
+            abi.encodePacked(
+                "0", "+", "3", "+", "Title", "+", "Body" 
+            )
+        )
+    )
+);
 
   function createCampaign(
     string memory _name,
@@ -48,4 +68,7 @@ contract CampaignManager {
     IERC20(xatAddress).transferFrom(msg.sender, address(this), _campaignBudget);
     return newId;
   }
+
+ 
+
 }

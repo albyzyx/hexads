@@ -23,7 +23,7 @@ const TextInput = ({
 }: TextInputProps) => {
   return (
     <section className="flex flex-col items-start gap-3 w-full">
-      <label htmlFor={label} className="text-secondary text-lg font-medium">
+      <label htmlFor={label} className="text-black text-lg font-medium">
         {label} {mandatory && <span className="text-mandatory">*</span>}
       </label>
       <input
@@ -33,7 +33,7 @@ const TextInput = ({
         onChange={(e) => {
           callback(e.target.value);
         }}
-        className={`text-secondary pl-5 py-3 text-lg rounded-lg font-medium focus:outline-none border-[0.75px] border-border bg-background placeholder:text-secondary w-full ${styles}`}
+        className={`text-secondary pl-5 py-3 text-lg rounded-lg font-medium focus:outline-none border-[0.75px] border-gray-400 bg-primary placeholder:text-secondary w-full ${styles}`}
       />
       {meta && meta.touched && meta.error ? (
         <span className=" text-mandatory">{meta.error}</span>

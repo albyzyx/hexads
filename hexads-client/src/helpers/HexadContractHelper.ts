@@ -2,11 +2,13 @@ import { ethers } from "ethers";
 import { getWeb3Provider } from "./walletConnect";
 import CampaignManager from "../contracts/CampaignManager.json";
 import { CampaignManager as CampaignManagerType } from "../types/CampaignManager";
-import { CAMPAIGN_MANAGER_ADDRESS } from "./constants";
+import { CAMPAIGN_MANAGER_ADDRESS, XAT } from "./constants";
 import { parseUnits } from "ethers/lib/utils";
+import { approveSpend } from "./genericWeb3Helper";
 
 export const getCampignManagerContract = async () => {
   const web3Provider = await getWeb3Provider();
+  console.log({ web3Provider: web3Provider.network });
   const contract = new ethers.Contract(
     CAMPAIGN_MANAGER_ADDRESS,
     CampaignManager.abi,
@@ -15,7 +17,7 @@ export const getCampignManagerContract = async () => {
   return contract;
 };
 
-export const createAdCampign = async (
+export const createAdCampignContract = async (
   name: string,
   ipfsCID: string,
   campignBudget: string
@@ -27,6 +29,6 @@ export const createAdCampign = async (
     ipfsCID
   );
   await tx.wait();
-  console.log(tx);
+  console.log("Ret", tx.data);
   return tx.data;
 };

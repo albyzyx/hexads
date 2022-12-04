@@ -32,6 +32,9 @@ const CampaignInterface = {
     type: Boolean,
     default: true,
   },
+  advertizerAddress: {
+    type: String,
+  },
 };
 
 export default CampaignInterface;

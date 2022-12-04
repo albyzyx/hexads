@@ -5,6 +5,7 @@ import useViews from "../../hooks/useView";
 import Button from "../common/Button";
 import SelectInput from "../common/SelectInput";
 import TextInput from "../common/TextInput";
+import TagInput from "./TagInput";
 
 interface FormFieldType {
   values: any;
@@ -33,6 +34,28 @@ const Level2 = ({
         styles={"w-full"}
       />
       <TextInput
+        label={"Industry"}
+        placeHolder={"DeFi, Gaming, ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
+      <TextInput
+        label={"Ecosystem"}
+        placeHolder={"Ethereum, Solana, ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
+      <TextInput
+        label={"Tags"}
+        placeHolder={"Opensea, Uniswap, Aave ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
+      {/* <TagInput /> */}
+      <TextInput
         label={"Campaign Cost"}
         placeHolder={"0"}
         callback={(value: any) => {
@@ -43,13 +66,24 @@ const Level2 = ({
         meta={getFieldMeta("campaign_cost")}
         type="number"
       />
-      <Button
-        type="button"
-        onClick={() => {
-          views.updateCampaignView(CREATE_CAMPAIGN_VIEWS.LEVEL3);
-        }}>
-        Next
-      </Button>
+      <section className="w-full flex gap-2 items-center justify-end mt-3">
+        <Button
+          type="button"
+          onClick={() => {
+            views.updateCampaignView(CREATE_CAMPAIGN_VIEWS.LEVEL1);
+          }}
+        >
+          Back
+        </Button>
+        <Button
+          type="button"
+          onClick={() => {
+            views.updateCampaignView(CREATE_CAMPAIGN_VIEWS.LEVEL3);
+          }}
+        >
+          Next
+        </Button>
+      </section>
     </>
   );
 };

@@ -1,6 +1,8 @@
 export enum VIEWS {
   LOADING = 0,
   DASHBOARD = 2,
+  SHOW_CAMPAIGNS = 3,
+  GENERATE_API_KEY = 4,
   CREATE_CAMPAIGN = 10,
 }
 
