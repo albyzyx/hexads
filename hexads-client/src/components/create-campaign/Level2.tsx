@@ -33,6 +33,27 @@ const Level2 = ({
         mandatory={true}
         styles={"w-full"}
       />
+      <TextInput
+        label={"Industry"}
+        placeHolder={"DeFi, Gaming, ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
+      <TextInput
+        label={"Ecosystem"}
+        placeHolder={"Ethereum, Solana, ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
+      <TextInput
+        label={"Tags"}
+        placeHolder={"Opensea, Uniswap, Aave ...."}
+        callback={(value: any) => {}}
+        mandatory={false}
+        value={""}
+      />
       {/* <TagInput /> */}
       <TextInput
         label={"Campaign Cost"}

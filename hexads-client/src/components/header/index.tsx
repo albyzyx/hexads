@@ -9,7 +9,6 @@ const HeaderComponent = () => {
       {/* <h1 className=" font-bold text-3xl">HexAds</h1> */}
       <img src={"/logo.png"} alt="" className="w-36 h-8" />
       <div className="flex items-center gap-4">
-        <WalletConnect />
         {wallet.address && (
           <>
             <div className="h-12 w-12 rounded-full bg-black"></div>
