@@ -8,7 +8,7 @@ import LoadApp from "./components/common/LoadApp";
 const App = () => {
   const config = useConfig();
   return (
-    <div className="App">
+    <div className="App font-montserrat">
       {config.user_type === "none" ? <LoadApp /> : <Container />}
       <ToastContainer
         position="top-right"

@@ -15,7 +15,7 @@ const Button = ({
     <button
       onClick={onClick}
       type={type}
-      className={`flex items-center justify-center text-center bg-background text-accent border-[0.5px] hover:text-opacity-70 text-lg border-border rounded-md px-4 py-2 ${styles}`}>
+      className={`flex items-center justify-center text-center bg-white text-accent border-[0.5px] hover:text-opacity-70 text-lg border-gray-300 rounded-md px-4 py-2 font-semibold ${styles}`}>
       {children}
     </button>
   );

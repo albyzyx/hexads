@@ -23,7 +23,7 @@ const Level1 = ({
     <>
       <TextInput
         label={"Subject"}
-        placeHolder={""}
+        placeHolder={"Awesome Campaign"}
         callback={(value: any) => {
           setFieldValue("subject", value);
         }}
@@ -33,7 +33,7 @@ const Level1 = ({
       />
       <TextArea
         label={"Description"}
-        placeHolder={""}
+        placeHolder={"Campaign Description"}
         callback={(value: any) => {
           setFieldValue("description", value);
         }}
@@ -43,7 +43,7 @@ const Level1 = ({
       />
       <TextInput
         label={"Redirect URI"}
-        placeHolder={""}
+        placeHolder={"Redirect to?"}
         callback={(value: any) => {
           setFieldValue("redirect_url", value);
         }}
@@ -53,7 +53,7 @@ const Level1 = ({
       />
       <TextInput
         label={"Banner URI"}
-        placeHolder={""}
+        placeHolder={"What should be spammed?"}
         callback={(value: any) => {
           setFieldValue("banner_url", value);
         }}
@@ -61,13 +61,15 @@ const Level1 = ({
         value={values.banner_url}
         meta={getFieldMeta("banner_url")}
       />
-      <Button
-        onClick={() => {
-          views.updateCampaignView(CREATE_CAMPAIGN_VIEWS.LEVEL2);
-        }}
-        type="button">
-        Next
-      </Button>
+      <section className="flex items-center justify-end mt-2 w-full">
+        <Button
+          onClick={() => {
+            views.updateCampaignView(CREATE_CAMPAIGN_VIEWS.LEVEL2);
+          }}
+          type="button">
+          Next
+        </Button>
+      </section>
     </>
   );
 };

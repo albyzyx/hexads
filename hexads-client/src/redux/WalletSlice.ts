@@ -71,6 +71,7 @@ const walletSlice = createSlice({
       })
       .addCase(disconnectWallet.fulfilled, (state, { payload }: any) => {
         state.address = "";
+        localStorage.removeItem("user_type");
       });
   },
 });
