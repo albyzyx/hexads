@@ -7,6 +7,7 @@ const TargetKeywordInterface = {
   keyword: {
     type: String,
     required: true,
+    unique:true,
   },
 };
 
