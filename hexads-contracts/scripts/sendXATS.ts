@@ -1,3 +1,4 @@
+import { parseUnits } from "ethers/lib/utils";
 import { ethers } from "hardhat";
 
 async function main() {
@@ -5,11 +6,12 @@ async function main() {
     "XAT",
     "0xdF960D425e6f31b32B1ec7F4Da056EF4D50AA710"
   );
-  const xat = await XAT.approve(
-    "0xc0D16A82b43fDB74DA2D2b4De4F2003E9709ea1A",
-    ethers.constants.MaxUint256
+  const xat = await XAT.transfer(
+    "0x9D543e6B9d73963e10aDEeDacdA587d60098cF33",
+    parseUnits("10000", 18)
   );
-  console.log(xat);
+  await xat.wait();
+  console.log(xat.hash);
 }
 
 main().catch((error) => {
